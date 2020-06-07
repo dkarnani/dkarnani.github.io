@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>herro</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+$(document).ready(function () {
+	$('#butt').on("click", function(e) {
+    e.preventDefault();
+    var formData = new FormData();
+    var files = $('#file')[0].files[0];
+    formData.append('file', files);
+    var i=0;
+  		  $.ajax({
+        url: "upload.php",
+  			type: "post",
+  			data:  formData,
+  			contentType: false,
+  			processData:false,
+        beforeSend: function() {
+            $("#p1").text("");
+            $("#yesh").text("Loading ...");
+        },
+ 			  success: function(response) {
+          if(JSON.parse(response) == "") {
+            const container = document.querySelector('#container');
+            removeAllChildNodes(container);
+            $("#yesh").text("");
+            $("#p1").text("Please enter a scene file");
+          }
+          else if(response != 1) {
+            const container = document.querySelector('#container');
+            removeAllChildNodes(container);
+            $("#yesh").text("");
+            $("#p1").text("");
+            var obj = JSON.parse(response);
+            var str = obj.toString();
+            str = str.substring(2);
+            var res = str.split(",");
+            var divelement = document.getElementById("container");
+            for(i = 0; i < res.length; i++)
+            {
+                var para = document.createElement("p");
+                para.appendChild(document.createTextNode(res[i]));
+                divelement.appendChild(para);
+            }}
+           else {
+            const container = document.querySelector('#container');
+            removeAllChildNodes(container);
+            $("#yesh").text("");
+            $("#p1").text("Please upload a .json file");
+          }
+  	   },
+       error: function(response) {
+           alert(response);
+       }});
+	});
+});
+</script>
+
+<h1>Test Your Aeroplane</h1>
+<form class='form' method='post' action="" enctype="multipart/form-data">
+	<input type="file" id="file" name="file" onchange="if($('#file').val().split('.').pop().toLowerCase() != 'json') {alert('Please upload a .json file')}">
+	<button class='button' id="butt">UPLOAD</button>
+</form>
+<h2 class='errorType' id="p1"></h2>  
+<h2 class='loading' id="yesh"></h2>
+<div class='container' id="container"></div>
+</body>
+</html>

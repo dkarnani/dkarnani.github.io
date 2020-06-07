@@ -1,0 +1,39 @@
+h1{
+  font-family: "Lucida Console", Courier, monospace;
+  text-align: center;
+  word-spacing: 10px;
+}
+
+.container{
+  left: auto;
+  width: 280px;
+  overflow: auto;
+  background-color: ghostwhite;
+}
+
+.errorType{
+  color: red;
+  font-weight: bold;
+}
+
+.loading{
+  color: DeepSkyBlue;
+  font-weight: bold;
+}
+
+.form{
+  text-align: center;
+}
+
+.button{
+  border: 0px;
+  color: black;
+  background-color: white; 
+  border-radius: 6px;
+  border: 2px solid #008CBA;
+  padding: 5px 15px;
+  margin-left: 10px;
+  transition-duration: 0.4s
+}
+
+.button:hover {background-color: #e7e7e7;}
