@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          work rn
+          WORKKKKK rn
         </a>
       </header>
     </div>
