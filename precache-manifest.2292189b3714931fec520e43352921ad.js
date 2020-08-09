@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "baaf33307a3814cf28dc788f76d94a59",
+    "revision": "8d9e1705d75498d4c172f54cf23237f7",
     "url": "/aerovate/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/aerovate/static/css/209.d34346ea.chunk.css"
   },
   {
-    "revision": "bf2498de7818664309c9",
+    "revision": "0d54eed61109a64ae19a",
     "url": "/aerovate/static/css/main.1aa3f63c.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/aerovate/static/js/211.6bb1462f.chunk.js"
   },
   {
-    "revision": "bf2498de7818664309c9",
-    "url": "/aerovate/static/js/main.f30a3f26.chunk.js"
+    "revision": "0d54eed61109a64ae19a",
+    "url": "/aerovate/static/js/main.d604f85b.chunk.js"
   },
   {
     "revision": "51becd3c0694434bc9d2",
