@@ -10,11 +10,13 @@ import configs from "./configs";
     history.push(appState?.returnTo || window.location.pathname);
   };
 
+  const uri = window.location.origin == "https://dkarnani.github.io" ? "https://dkarnani.github.io/aerovate/" : window.location.origin;
+
   return (
     <Auth0Provider
       domain = {configs.DOMAIN}
       clientId= {configs.clientID}
-      redirectUri="http://dkarnani.github.io/"
+      redirectUri={uri}
       onRedirectCallback={onRedirectCallback}
     >
       {children}

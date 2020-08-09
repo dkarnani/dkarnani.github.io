@@ -62,7 +62,7 @@ const { user, isLoading } = useAuth0();
   };
 
   return (
-    <Router history={history}>
+  /*   <Router history={history}> */
       <div id="app" className="d-flex flex-column h-100">
 {/*         <NavBar /> */}
         <Container className="flex-grow-1 mt-5">
@@ -80,7 +80,7 @@ const { user, isLoading } = useAuth0();
         </Container>
         <Footer />
       </div>
-    </Router>
+/*     </Router> */
   );
 }
 

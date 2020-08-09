@@ -28,7 +28,7 @@ const NavBar = () => {
     }
   } */
 /*   const [isOpen, toggle] = useState(false); */
-  const { user, isLoading, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { user, isLoading, getAccessTokenSilently, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   if (isLoading) {
     return <Loading />;
@@ -121,7 +121,7 @@ const NavBar = () => {
                     <DropdownItem
                       id="qsLogoutBtn"
                       onClick={() => logout({
-                        returnTo: window.location.origin,
+                        returnTo: "https://dkarnani.github.io/aerovate/",
                       })}
                     >
                       <FontAwesomeIcon icon="power-off" className="mr-3" /> Log
@@ -177,7 +177,7 @@ const NavBar = () => {
                     to="#"
                     id="qsLogoutBtn"
                     onClick={() => logout({
-                      returnTo: window.location.origin,
+                      returnTo: "https://dkarnani.github.io/aerovate/",
                     })}
                   >
                     Log out

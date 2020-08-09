@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FormGroup, Input, Button, Form } from "reactstrap";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../components/Loading";
+import Highlight from "../components/Highlight";
 import configs from "../configs";
 
 export const FileUpload = () => {
@@ -14,18 +15,13 @@ export const FileUpload = () => {
     error: null,
     file: null,
     values: null,
-    formattedArray: []
+    score: null
   });
 
+  const apiUrl = "http://35.174.208.247:5000";
   var data=null;
   
-  const {
-    getAccessTokenSilently,
-    loginWithPopup,
-    getAccessTokenWithPopup,
-  } = useAuth0();
-
-
+  const { getAccessTokenSilently, getIdTokenClaims } = useAuth0();
 
   const handle = (e, fn) => {
     e.preventDefault();
@@ -44,22 +40,25 @@ export const FileUpload = () => {
   };
 
   const fileUpload = async(file) => {
-    const url = configs.API_URL;
-    const formData = new FormData();
-    formData.append('file',file)
-    const config = {
-        headers: {
+    try {
+      const claims = await getIdTokenClaims();
+      const token = claims.__raw;
+      const url = configs.API_URL;
+      const formData = new FormData();
+      formData.append('file',file)
+      const config = {
+          headers: {
+            'Authorization': `Bearer ${token}`,  
             'content-type': 'multipart/form-data'
-        }
+          }
+      }
+      const responseData = await post(url, formData, config)
+      data = responseData["data"]["data"];
+      console.log(data);
+      setState({...state, values:data, score:responseData["data"]["score"]});
+    } catch (error) {
+      
     }
-    const responseData = await post(url, formData, config)
-    data = responseData
-    console.log(data);
-    data=JSON.stringify(data["data"]).slice(1, -1);
-    console.log(data);
-    data =data.split(",");
-    console.log(data);
-    setState({...state, formattedArray:data});
   };
 
   return (
@@ -81,9 +80,22 @@ export const FileUpload = () => {
             <Button onClick={(e) => onFormSubmit(e)} className="mdl-button mdl-js-button" variant="outline-primary">Upload</Button>
           </FormGroup>
         </Form>  
-        <br/>
-        <h4>Values</h4>
-        <ul>{state.formattedArray.map((value) => <li>{value}</li>)}</ul>
+        {state.score && (
+          <div className="mt-5">
+            <h4 className="muted">Your Score</h4>
+            <Highlight language="json">
+              {JSON.stringify(state.score, null, 2)}
+            </Highlight>
+          </div>
+        )}
+        {state.values && (
+          <div className="mt-5">
+            <h4 className="muted">Values</h4>
+            <Highlight language="json">
+              {JSON.stringify(state.values, null, 2)}
+            </Highlight>
+          </div>
+        )}
       </div>
     </>
   );
