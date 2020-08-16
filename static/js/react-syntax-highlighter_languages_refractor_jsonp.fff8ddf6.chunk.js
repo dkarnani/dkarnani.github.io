@@ -1,0 +1,2 @@
+(this["webpackJsonpauth0-react-sample"]=this["webpackJsonpauth0-react-sample"]||[]).push([[96],{1036:function(s,a,n){"use strict";var e=n(345);function t(s){s.register(e),s.languages.jsonp=s.languages.extend("json",{punctuation:/[{}[\]();,.]/}),s.languages.insertBefore("jsonp","punctuation",{function:/[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*\()/})}s.exports=t,t.displayName="jsonp",t.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_jsonp.fff8ddf6.chunk.js.map
