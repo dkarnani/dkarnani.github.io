@@ -1,2 +1,0 @@
-(this["webpackJsonpauth0-react-sample"]=this["webpackJsonpauth0-react-sample"]||[]).push([[61],{672:function(t,e,a){"use strict";function s(t){t.languages.gcode={comment:/;.*|\B\(.*?\)\B/,string:{pattern:/"(?:""|[^"])*"/,greedy:!0},keyword:/\b[GM]\d+(?:\.\d+)?\b/,property:/\b[A-Z]/,checksum:{pattern:/\*\d+/,alias:"punctuation"},punctuation:/:/}}t.exports=s,s.displayName="gcode",s.aliases=[]}}]);
-//# sourceMappingURL=react-syntax-highlighter_languages_refractor_gcode.e231a07d.chunk.js.map
