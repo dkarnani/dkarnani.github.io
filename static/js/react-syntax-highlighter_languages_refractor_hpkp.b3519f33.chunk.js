@@ -1,0 +1,2 @@
+(this["webpackJsonpauth0-react-sample"]=this["webpackJsonpauth0-react-sample"]||[]).push([[76],{692:function(a,e,t){"use strict";function s(a){a.languages.hpkp={directive:{pattern:/\b(?:(?:includeSubDomains|preload|strict)(?: |;)|pin-sha256="[a-zA-Z\d+=/]+"|(?:max-age|report-uri)=|report-to )/,alias:"keyword"},safe:{pattern:/\b\d{7,}\b/,alias:"selector"},unsafe:{pattern:/\b\d{1,6}\b/,alias:"function"}}}a.exports=s,s.displayName="hpkp",s.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_hpkp.b3519f33.chunk.js.map
